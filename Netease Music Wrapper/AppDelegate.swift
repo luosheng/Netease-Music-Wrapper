@@ -81,9 +81,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let songWrapper = webView.windowScriptObject.evaluateWebScript("document.querySelector('.fc1').innerText") as? String
         let artistWrapper = webView.windowScriptObject.evaluateWebScript("document.querySelector('.by span a').innerText") as? String
+        let image = webView.stringByEvaluatingJavaScriptFromString("document.querySelector('.head img').src")
+        
         if let song = songWrapper {
             if let artist = artistWrapper {
-                println("Song: \(song) By: \(artist)")
+                println("Song: \(song) By: \(artist) Image: \(image)")
                 let notification = NSUserNotification()
                 notification.title = song
                 notification.subtitle = artist
