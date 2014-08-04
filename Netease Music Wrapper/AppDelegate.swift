@@ -7,14 +7,17 @@
 //
 
 import Cocoa
+import WebKit
 
 class AppDelegate: NSObject, NSApplicationDelegate {
                             
     @IBOutlet weak var window: NSWindow!
+    @IBOutlet weak var webView: WebView!
 
 
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         // Insert code here to initialize your application
+        webView.mainFrame.loadRequest(NSURLRequest(URL: NSURL(string: "http://music.163.com")))
     }
 
     func applicationWillTerminate(aNotification: NSNotification?) {
