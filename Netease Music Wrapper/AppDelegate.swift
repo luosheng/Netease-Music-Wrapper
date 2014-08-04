@@ -76,8 +76,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     // MARK: - WebFrameLoadDelegate
     
     override func webView(sender: WebView!, didFinishLoadForFrame frame: WebFrame!) {
-//        segmentedControl.setEnabled(sender.canGoBack, forSegment: 0)
-//        segmentedControl.setEnabled(sender.canGoForward, forSegment: 0)
+        segmentedControl.setEnabled(sender.canGoBack, forSegment: 0)
+        segmentedControl.setEnabled(sender.canGoForward, forSegment: 1)
+    }
+    
+    override func webView(sender: WebView!, didChangeLocationWithinPageForFrame frame: WebFrame!) {
+        segmentedControl.setEnabled(sender.canGoBack, forSegment: 0)
+        segmentedControl.setEnabled(sender.canGoForward, forSegment: 1)
     }
     
     override func webView(sender: WebView!, didReceiveTitle title: String!, forFrame frame: WebFrame!) {
