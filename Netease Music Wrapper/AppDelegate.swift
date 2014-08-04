@@ -71,6 +71,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //        segmentedControl.setEnabled(sender.canGoBack, forSegment: 0)
 //        segmentedControl.setEnabled(sender.canGoForward, forSegment: 0)
     }
+    
+    override func webView(sender: WebView!, didReceiveTitle title: String!, forFrame frame: WebFrame!) {
+        window.title = title
     }
 }
 
