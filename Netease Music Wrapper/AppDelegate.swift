@@ -9,7 +9,7 @@
 import Cocoa
 import WebKit
 
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
                             
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var webView: WebView!
@@ -25,6 +25,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         mediaTap = SPMediaKeyTap(delegate: self)
         mediaTap.startWatchingMediaKeys()
+        
+        NSUserNotificationCenter.defaultUserNotificationCenter().delegate = self
     }
 
     func applicationWillTerminate(aNotification: NSNotification?) {
@@ -84,6 +86,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let song = webView.stringByEvaluatingJavaScriptFromString("document.querySelector('.fc1').innerText")
         let artist = webView.stringByEvaluatingJavaScriptFromString("document.querySelector('.by span a').innerText")
         let imageURLString = webView.stringByEvaluatingJavaScriptFromString("document.querySelector('.head img').src")
+        let songSrc = webView.stringByEvaluatingJavaScriptFromString("document.querySelector('.src').href")
         
         if !(song.isEmpty || artist.isEmpty) {
             println("Song: \(song) By: \(artist) Image: \(imageURLString)")
@@ -92,17 +95,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 let imageURL = NSURL(string: imageURLString)
                 let hdImageURL = NSURL(scheme: imageURL.scheme, host: imageURL.host, path: "\(imageURL.path)?param=\(self.albumSize)x\(self.albumSize)")
                 let image = NSImage(contentsOfURL: hdImageURL)
-                image.size = NSSize(width: self.albumSize / 2.0, height: self.albumSize / 2.0)
+                
+                let displayScale = NSScreen.mainScreen().backingScaleFactor
+                
+                image.size = NSSize(width: CGFloat(self.albumSize) / displayScale, height: CGFloat(self.albumSize) / displayScale)
                 
                 let notification = NSUserNotification()
                 notification.title = song
                 notification.subtitle = artist
                 notification.contentImage = image
+                notification.userInfo = ["URL": songSrc]
                 
                 dispatch_async(dispatch_get_main_queue(), {
                     NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
                 })
             })
+        }
+    }
+    
+    // MARK: - NSUserNotificationCenterDelegate
+    
+    func userNotificationCenter(center: NSUserNotificationCenter!, didActivateNotification notification: NSUserNotification!) {
+        if let URLString: AnyObject = notification.userInfo["URL"] {
+            let URL = NSURL(string: URLString as? String)
+            NSWorkspace.sharedWorkspace().openURL(URL)
         }
     }
 }
