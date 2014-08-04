@@ -85,14 +85,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         if !(song.isEmpty || artist.isEmpty) {
             println("Song: \(song) By: \(artist) Image: \(imageURL)")
-            let notification = NSUserNotification()
-            notification.title = song
-            notification.subtitle = artist
             
-            let image = NSImage(contentsOfURL: NSURL(string: imageURL))
-            notification.contentImage = image
-            
-            NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
+                let image = NSImage(contentsOfURL: NSURL(string: imageURL))
+                
+                let notification = NSUserNotification()
+                notification.title = song
+                notification.subtitle = artist
+                notification.contentImage = image
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
+                })
+            })
         }
     }
 }
