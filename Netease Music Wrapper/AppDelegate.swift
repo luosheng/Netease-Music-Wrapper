@@ -38,13 +38,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if keyPressed {
             switch keyCode {
             case Int(NX_KEYTYPE_PLAY):
-                println("play")
+                webView.windowScriptObject.evaluateWebScript("document.querySelector('.ply').click()")
                 return
             case Int(NX_KEYTYPE_FAST):
-                println("next")
+                webView.windowScriptObject.evaluateWebScript("document.querySelector('.nxt').click()")
                 return
             case Int(NX_KEYTYPE_REWIND):
-                println("prev")
+                webView.windowScriptObject.evaluateWebScript("document.querySelector('.prv').click()")
                 return
             default:
                 return
