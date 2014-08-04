@@ -30,6 +30,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         mediaTap.stopWatchingMediaKeys()
     }
     
+    // MARK: - SPMediaKeyTap delegate methods
+    
     override func mediaKeyTap(keyTap: SPMediaKeyTap!, receivedMediaKeyEvent event: NSEvent!) {
         let keyCode = (event.data1 & 0xFFFF0000) >> 16
         let keyFlags = event.data1 & 0x0000FFFF
@@ -52,6 +54,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
     }
+    
+    // MARK: - Event handlers
 
     @IBAction func navigateBetweenPages(sender: AnyObject) {
         let segmentedControl = sender as NSSegmentedControl
@@ -65,7 +69,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    // MARK: - <WebFrameLoadDelegate>
+    // MARK: - WebFrameLoadDelegate
     
     override func webView(sender: WebView!, didFinishLoadForFrame frame: WebFrame!) {
 //        segmentedControl.setEnabled(sender.canGoBack, forSegment: 0)
