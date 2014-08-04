@@ -13,6 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                             
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var webView: WebView!
+    @IBOutlet weak var segmentedControl: NSSegmentedControl!
     
     var mediaTap: SPMediaKeyTap!
 
@@ -62,6 +63,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         default:
             return
         }
+    }
+    
+    // MARK: - <WebFrameLoadDelegate>
+    
+    override func webView(sender: WebView!, didFinishLoadForFrame frame: WebFrame!) {
+//        segmentedControl.setEnabled(sender.canGoBack, forSegment: 0)
+//        segmentedControl.setEnabled(sender.canGoForward, forSegment: 0)
+    }
     }
 }
 

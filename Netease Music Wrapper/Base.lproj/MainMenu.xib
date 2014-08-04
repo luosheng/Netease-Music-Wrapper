@@ -14,6 +14,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Netease_Music_Wrapper" customModuleProvider="target">
             <connections>
+                <outlet property="segmentedControl" destination="VdC-CJ-dxT" id="D3h-WH-FMC"/>
                 <outlet property="webView" destination="dav-cY-kie" id="zZf-bg-syh"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
@@ -682,6 +683,9 @@
                         <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
                             <nil key="identifier"/>
                         </webPreferences>
+                        <connections>
+                            <outlet property="frameLoadDelegate" destination="Voe-Tx-rLC" id="Yau-or-42M"/>
+                        </connections>
                     </webView>
                 </subviews>
                 <constraints>
