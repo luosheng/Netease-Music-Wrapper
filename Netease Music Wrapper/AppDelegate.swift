@@ -16,6 +16,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var segmentedControl: NSSegmentedControl!
     
     var mediaTap: SPMediaKeyTap!
+    
+    let albumSize = 200
 
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         // Insert code here to initialize your application
@@ -81,13 +83,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let song = webView.stringByEvaluatingJavaScriptFromString("document.querySelector('.fc1').innerText")
         let artist = webView.stringByEvaluatingJavaScriptFromString("document.querySelector('.by span a').innerText")
-        let imageURL = webView.stringByEvaluatingJavaScriptFromString("document.querySelector('.head img').src")
+        let imageURLString = webView.stringByEvaluatingJavaScriptFromString("document.querySelector('.head img').src")
         
         if !(song.isEmpty || artist.isEmpty) {
-            println("Song: \(song) By: \(artist) Image: \(imageURL)")
+            println("Song: \(song) By: \(artist) Image: \(imageURLString)")
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
-                let image = NSImage(contentsOfURL: NSURL(string: imageURL))
+                let imageURL = NSURL(string: imageURLString)
+                let hdImageURL = NSURL(scheme: imageURL.scheme, host: imageURL.host, path: "\(imageURL.path)?param=\(self.albumSize)x\(self.albumSize)")
+                let image = NSImage(contentsOfURL: hdImageURL)
+                image.size = NSSize(width: self.albumSize / 2.0, height: self.albumSize / 2.0)
                 
                 let notification = NSUserNotification()
                 notification.title = song
