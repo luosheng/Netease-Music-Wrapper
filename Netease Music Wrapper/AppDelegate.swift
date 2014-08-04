@@ -41,13 +41,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if keyPressed {
             switch keyCode {
             case Int(NX_KEYTYPE_PLAY):
-                webView.windowScriptObject.evaluateWebScript("document.querySelector('.ply').click()")
+                webView.stringByEvaluatingJavaScriptFromString("document.querySelector('.ply').click()")
                 return
             case Int(NX_KEYTYPE_FAST):
-                webView.windowScriptObject.evaluateWebScript("document.querySelector('.nxt').click()")
+                webView.stringByEvaluatingJavaScriptFromString("document.querySelector('.nxt').click()")
                 return
             case Int(NX_KEYTYPE_REWIND):
-                webView.windowScriptObject.evaluateWebScript("document.querySelector('.prv').click()")
+                webView.stringByEvaluatingJavaScriptFromString("document.querySelector('.prv').click()")
                 return
             default:
                 return
@@ -79,18 +79,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     override func webView(sender: WebView!, didReceiveTitle title: String!, forFrame frame: WebFrame!) {
         window.title = title
         
-        let songWrapper = webView.windowScriptObject.evaluateWebScript("document.querySelector('.fc1').innerText") as? String
-        let artistWrapper = webView.windowScriptObject.evaluateWebScript("document.querySelector('.by span a').innerText") as? String
+        let song = webView.stringByEvaluatingJavaScriptFromString("document.querySelector('.fc1').innerText")
+        let artist = webView.stringByEvaluatingJavaScriptFromString("document.querySelector('.by span a').innerText")
         let image = webView.stringByEvaluatingJavaScriptFromString("document.querySelector('.head img').src")
         
-        if let song = songWrapper {
-            if let artist = artistWrapper {
-                println("Song: \(song) By: \(artist) Image: \(image)")
-                let notification = NSUserNotification()
-                notification.title = song
-                notification.subtitle = artist
-                NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
-            }
+        if !(song.isEmpty || artist.isEmpty) {
+            println("Song: \(song) By: \(artist) Image: \(image)")
+            let notification = NSUserNotification()
+            notification.title = song
+            notification.subtitle = artist
+            NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
         }
     }
 }
