@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B31E94A5198F5FFA0020D379 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = B31E94A4198F5FFA0020D379 /* SPMediaKeyTap.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B3A001B6198F524800DD904D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A001B5198F524800DD904D /* main.swift */; };
 		B3A001B8198F524800DD904D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A001B7198F524800DD904D /* AppDelegate.swift */; };
 		B3A001BA198F524800DD904D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3A001B9198F524800DD904D /* Images.xcassets */; };
@@ -26,6 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B31E94A3198F5FFA0020D379 /* SPMediaKeyTap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMediaKeyTap.h; path = SPMediaKeyTap/SPMediaKeyTap.h; sourceTree = SOURCE_ROOT; };
+		B31E94A4198F5FFA0020D379 /* SPMediaKeyTap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMediaKeyTap.m; path = SPMediaKeyTap/SPMediaKeyTap.m; sourceTree = SOURCE_ROOT; };
 		B3A001B0198F524800DD904D /* Netease Music Wrapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Netease Music Wrapper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3A001B4198F524800DD904D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3A001B5198F524800DD904D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -58,6 +61,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B31E94A6198F60000020D379 /* SPMediaKeyTap */ = {
+			isa = PBXGroup;
+			children = (
+				B31E94A3198F5FFA0020D379 /* SPMediaKeyTap.h */,
+				B31E94A4198F5FFA0020D379 /* SPMediaKeyTap.m */,
+			);
+			name = SPMediaKeyTap;
+			sourceTree = "<group>";
+		};
 		B3A001A7198F524800DD904D = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +92,7 @@
 		B3A001B2198F524800DD904D /* Netease Music Wrapper */ = {
 			isa = PBXGroup;
 			children = (
+				B31E94A6198F60000020D379 /* SPMediaKeyTap */,
 				B3A001B7198F524800DD904D /* AppDelegate.swift */,
 				B3A001B9198F524800DD904D /* Images.xcassets */,
 				B3A001BB198F524800DD904D /* MainMenu.xib */,
@@ -215,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3A001B8198F524800DD904D /* AppDelegate.swift in Sources */,
+				B31E94A5198F5FFA0020D379 /* SPMediaKeyTap.m in Sources */,
 				B3A001B6198F524800DD904D /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
