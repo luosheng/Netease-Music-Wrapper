@@ -707,6 +707,9 @@
                                     <segment image="NSGoRightTemplate" width="32" tag="1"/>
                                 </segments>
                             </segmentedCell>
+                            <connections>
+                                <action selector="navigateBetweenPages:" target="Voe-Tx-rLC" id="YIH-xy-y8w"/>
+                            </connections>
                         </segmentedControl>
                     </toolbarItem>
                 </allowedToolbarItems>

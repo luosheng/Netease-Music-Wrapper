@@ -52,6 +52,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-
+    @IBAction func navigateBetweenPages(sender: AnyObject) {
+        let segmentedControl = sender as NSSegmentedControl
+        switch segmentedControl.selectedSegment {
+        case 0:
+            webView.goBack()
+        case 1:
+            webView.goForward()
+        default:
+            return
+        }
+    }
 }
 
