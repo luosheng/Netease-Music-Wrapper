@@ -81,13 +81,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let song = webView.stringByEvaluatingJavaScriptFromString("document.querySelector('.fc1').innerText")
         let artist = webView.stringByEvaluatingJavaScriptFromString("document.querySelector('.by span a').innerText")
-        let image = webView.stringByEvaluatingJavaScriptFromString("document.querySelector('.head img').src")
+        let imageURL = webView.stringByEvaluatingJavaScriptFromString("document.querySelector('.head img').src")
         
         if !(song.isEmpty || artist.isEmpty) {
-            println("Song: \(song) By: \(artist) Image: \(image)")
+            println("Song: \(song) By: \(artist) Image: \(imageURL)")
             let notification = NSUserNotification()
             notification.title = song
             notification.subtitle = artist
+            
+            let image = NSImage(contentsOfURL: NSURL(string: imageURL))
+            notification.contentImage = image
+            
             NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
         }
     }
