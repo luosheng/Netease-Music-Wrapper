@@ -36,6 +36,7 @@
 		B3A001C7198F524800DD904D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3A001C8198F524800DD904D /* Netease_Music_WrapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Netease_Music_WrapperTests.swift; sourceTree = "<group>"; };
 		B3A001D2198F52F000DD904D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		B3A001EE198F582600DD904D /* Netease Music Wrapper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Netease Music Wrapper-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +84,7 @@
 				B3A001B9198F524800DD904D /* Images.xcassets */,
 				B3A001BB198F524800DD904D /* MainMenu.xib */,
 				B3A001B3198F524800DD904D /* Supporting Files */,
+				B3A001EE198F582600DD904D /* Netease Music Wrapper-Bridging-Header.h */,
 			);
 			path = "Netease Music Wrapper";
 			sourceTree = "<group>";
@@ -328,10 +330,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Netease Music Wrapper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Netease Music Wrapper/Netease Music Wrapper-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -339,10 +344,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Netease Music Wrapper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Netease Music Wrapper/Netease Music Wrapper-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -401,6 +408,7 @@
 				B3A001CE198F524800DD904D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3A001CF198F524800DD904D /* Build configuration list for PBXNativeTarget "Netease Music WrapperTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +417,7 @@
 				B3A001D1198F524800DD904D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
