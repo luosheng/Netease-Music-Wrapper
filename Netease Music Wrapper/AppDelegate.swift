@@ -78,6 +78,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     override func webView(sender: WebView!, didReceiveTitle title: String!, forFrame frame: WebFrame!) {
         window.title = title
+        
+        let songWrapper = webView.windowScriptObject.evaluateWebScript("document.querySelector('.fc1').innerText") as? String
+        let artistWrapper = webView.windowScriptObject.evaluateWebScript("document.querySelector('.by span a').innerText") as? String
+        if let song = songWrapper {
+            if let artist = artistWrapper {
+                println("Song: \(song) By: \(artist)")
+            }
+        }
     }
 }
 
