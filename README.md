@@ -2,6 +2,16 @@
 
 This is just a simple WebKit wrapper around [Netease Music](http://music.163.com).
 
+## Installation
+
+The project is written in Swift. So make sure you have the latest Xcode 6 beta installed.
+
+Clone this project in the terminal. Then open, build and run it in the Xcode.
+
+```bash
+git clone --recursive https://github.com/luosheng/Netease-Music-Wrapper.git
+```
+
 ## What it can do
 
 * Capture the media keys to allow you control your music playlist with your keyboard. (Previous, Play / Pause, Next)
