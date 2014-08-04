@@ -84,6 +84,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let song = songWrapper {
             if let artist = artistWrapper {
                 println("Song: \(song) By: \(artist)")
+                let notification = NSUserNotification()
+                notification.title = song
+                notification.subtitle = artist
+                NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
             }
         }
     }
