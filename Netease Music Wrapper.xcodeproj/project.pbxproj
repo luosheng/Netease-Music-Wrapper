@@ -12,6 +12,7 @@
 		B3A001BA198F524800DD904D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3A001B9198F524800DD904D /* Images.xcassets */; };
 		B3A001BD198F524800DD904D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3A001BB198F524800DD904D /* MainMenu.xib */; };
 		B3A001C9198F524800DD904D /* Netease_Music_WrapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A001C8198F524800DD904D /* Netease_Music_WrapperTests.swift */; };
+		B3A001D3198F52F000DD904D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3A001D2198F52F000DD904D /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		B3A001C2198F524800DD904D /* Netease Music WrapperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Netease Music WrapperTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3A001C7198F524800DD904D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3A001C8198F524800DD904D /* Netease_Music_WrapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Netease_Music_WrapperTests.swift; sourceTree = "<group>"; };
+		B3A001D2198F52F000DD904D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3A001D3198F52F000DD904D /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +60,7 @@
 		B3A001A7198F524800DD904D = {
 			isa = PBXGroup;
 			children = (
+				B3A001D2198F52F000DD904D /* WebKit.framework */,
 				B3A001B2198F524800DD904D /* Netease Music Wrapper */,
 				B3A001C5198F524800DD904D /* Netease Music WrapperTests */,
 				B3A001B1198F524800DD904D /* Products */,
